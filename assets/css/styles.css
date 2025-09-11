@@ -1,61 +1,391 @@
+/* ==================================
+            REGRAS GLOBAIS
+   ================================== */
+
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
     font-family: Raleway, Arial, Helvetica, sans-serif;
     margin: 0; 
     padding: 0;
+    box-sizing: border-box;
 }
+
+/* ==================================
+            REGRAS DO BODY
+   ================================== */
 
 body {
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(0, 0, 0, 1);
+    max-width: 1440px;
+    max-height: 2491px;
+    margin: 0 auto;
 }
 
+/* ==================================
+          REGRAS DO HEADER
+   ================================== */
+
 .banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-image:
-        url('../images/banner.png'),
-        linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%,rgba(49, 168, 221, 0) 100%, rgba(0, 0, 0, 0.6) 0%)
-    ;
+        /* Camada 1: Feixe de luz azul "hiperbólico" */
+        radial-gradient(
+            ellipse 400% 85% at center, /* <-- Simulação da hipérbole! */
+            rgba(49, 168, 221, 0.15) 20%,
+            rgba(49, 168, 221, 0.1) 40%,
+            rgba(0, 0, 0, 0.1) 60%
+        ),
+
+        /* Camada 2: Um escurecimento geral para garantir o contraste */
+        linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+
+        /* Camada 3: Imagem de fundo */
+        url('../images/banner.png');
+
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    max-height: 605px;
+    width: 100%;
+    max-width: 1440px;
     border-bottom: 1px solid rgba(51, 168, 219, 1);
+    gap: 20px;
 }
 
 .banner-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
-    gap: 15px
+    justify-content: center;
+    height: 100%;
+    max-height: 396px;
+    width: 100%;
+    max-width: 600px;
+    gap: 16px;
+}
+
+.logo {
+    /* Estilização para criar um halo transparente (20%) circular imediatamente atrás da imagem logo.png*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza no eixo principal (veTIcal jusTIfy) */
+    align-items: center;    /* Centraliza no eixo transversal (horizontAL ALign) */
+    width: 248px;
+    height: 248px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.2);
+    flex-shrink: 0; /* Define se o objeto encolhe (0) ou não encolhe (1) */
+}
+
+.logo > img {
+    margin: 0 auto;
 }
 
 .banner-content > h1{
     background-image: linear-gradient(to top, #1472B7, #33A8DB);
     color: transparent;
     background-clip: text;
-    font-family: Raleway;
     font-weight: 900;
     text-align: center;
     font-size: 40px;
     letter-spacing: 0;
     line-height: 1.2;
+    max-width: 434px;
+    max-height: 48px;
 }
 
-.banner-content > p {
-    color: #ffffff;
+.banner-content > h1 + p {
+    color: rgb(255, 255, 255);
     text-align: center;
+    max-width: 600px;
+    width: 100%;
+    line-height: 1.2;
+    font-size: 20px;
+    letter-spacing: 0px;
+    text-wrap: balance;
+    padding-bottom: 10px;
 }
 
-.banner-content > button {
-    color: #31a8dd;
-    text-decoration-color: #31a8dd;
+.banner > button {
+    color: rgb(49, 168, 221);
+    text-align: center;
     text-transform: uppercase;
     font-family: Raleway;
     font-size: 16px;
     font-weight: 900;
     letter-spacing: 3.36px;
     line-height: 1.2;
-    padding: 20px;
-    border: 200px outset transparent;
-    background-image: linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1)), linear-gradient(to bottom, rgb(51, 168, 219), rgb(20, 114, 183));
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
+    width: 316px;
+    height: 58px;
+    padding: 19px 36px;
 
+    /* Estilização do botão com bordas em gradiente linear e fundo transparente. */
+    content: normal;
+    border: 2px outset; /* O estilo funciona sem definir a cor como transparent. Mas definir a cor como tranparent ajuda na acessibilidade do código. */
+    background-color: transparent; /* Torna o background do botão transparente */
+    border-image-source: linear-gradient(to bottom, rgb(51, 168, 219), rgb(20, 114, 183)); /* Aplica gradiente às bordas do botão. */
+    border-image-slice: 1; 
+}
+
+/* ==================================
+             REGRAS DO MAIN
+   ================================== */
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+main section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza no eixo principal (vertical) */
+    align-items: center;    /* Centraliza no eixo transversal (horizontal) */
+}
+
+#professional-challenges > img {
+    max-width: 100%; /* Permite que a imagem se expanda até, no máximo, seu tamanho original. */
+    height: auto; /* Garante que a altura da imagem se ajuste proporcionalmente à nova largura, evitando distorções. */
+}
+
+#course-content {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center; /* Alinha na vertical */
+    align-items: center; /* Alinha na horizontal */
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 60px;
+    padding-bottom: 50PX;
+    width: 100%;
+    max-width: 792px;
+    gap: 24px;
+}
+
+#course-content > h2 {
+    color: rgb(51, 168, 219);
+    text-transform: uppercase;
+    font-family: Raleway;
+    font-weight: 700;
+    letter-spacing: 6.08px;
+    line-height: 1.2;
+    text-align: center;
+}
+
+#course-content > h2 + p {
+    color: rgb(255, 255, 255);
+    font-family: Raleway;
+    font-size: 16px;
+    line-height: 1.2;
+    max-width: 792px;
+    width: 100%;
+    text-align: center;
+    text-wrap: balance;
+    padding: 0 2px;
+}
+
+.modules-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    background-color: transparent;
+    gap: 24px
+}
+
+.module {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 10px 25px;
+    border: 1px solid rgb(51, 168, 219);
+    border-radius: 57px;
+    background-color: rgb(37, 37, 37);
+    box-shadow: inset -2px 6px 4px rgba(0, 0, 0, 0.4); /* box-shadow: <dentro ou fora do elemento> <valor-x> <valor-y> <desfoque da sombra> <propagação em volta +px ou -px> <cor>, segunda camada, terceira camada, ...; */
+}
+
+.module span {
+    color: rgb(51, 168, 219);
+}
+
+#transform-world {
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(51, 168, 219);
+    border-left: 1px;
+    border-right: 1px;
+    position: relative;
+    height: 363px;
+    width: 100%;
+    max-width: 1440px;
+    align-items: flex-start;
+    padding-left: 10%;
+}
+
+#transform-world::before {
+    position: absolute;
+    background-image: url('../images/woman-code.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-origin: border-box;
+    content: ' ';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    filter: opacity(60%);
+    z-index: -1; /* Desloca este pseudo-elemento uma camada para traz. Ou seja, para uma camada antes da camada correspondente ao seu elemento pai, que nesse caso é o elemento #transform-world. */
+}
+
+#transform-world > p {
+    color: rgb(255, 255, 255);
+    text-align: left;
+    font-family: Raleway;
+    font-weight: 900;
+    font-size: 40px;
+    text-transform: lowercase;
+    width: 244px;
+    height: 141px;
+    text-shadow: 3px 2px rgb(51, 168, 219);
+    line-height: 1.2;
+}
+
+#professional-challenges {
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(51, 168, 219);
+    border-left: 1px;
+    border-right: 1px;
+    width: 100%;
+    max-width: 1440px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#professional-challenges > h2 {
+    color: rgb(51, 168, 219);
+    text-transform: uppercase;
+    font-family: Raleway;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: 5.08px;
+    text-align: center;
+    max-width: 752px;
+}
+
+#professional-challenges > img {
+    width: 100%;
+    max-width: 659px;
+    height: auto;
+    padding: 30px 0;
+}
+
+#professional-challenges > p {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 16px;
+    font-family: Raleway;
+    line-height: 1.2;
+    max-width: 792px;
+}
+
+/* ==================================
+            REGRAS DO FOOTER
+   ================================== */
+
+footer {
+    padding: 20px 0;
+    max-width: 1440px;
+    width: 100%;
+    max-height: 170px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient(to bottom, rgba(51, 168, 219, 0), rgba(51, 168, 219, 0.15));
+}
+
+footer > .dio-logo {
+    max-width: 310px;
+    width: 100%;
+    max-height: 44px;
+    height: 100%;
+}
+
+footer > p {
+    color: rgb(255, 255, 255);
+    max-width: 259px;
+    width: 100%;
+    max-height: 20px;
+    height: 100%;
+    font-family: Raleway;
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+footer p > a {
+    color: rgb(51, 168, 219);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* ==================================
+         MEDIA QUERIES (Desktop)
+   ================================== */
+
+@media (min-width: 768px) {
+    /*ESTILOS GLOBAIS*/
+
+    .banner > button {
+        width: 326px;
+        height: 58px;
+        padding: 19px 42px; 
+    }
+
+    .banner {
+        gap: 20px;
+    }
+
+    .logo {
+        width: 268px;
+        height: 268px;
+    }
+
+    #course-content {
+        padding-bottom: 120PX;
+    }
+
+    .module {
+        padding: 16px 65px;
+    }
+
+    #transform-world > p {
+        margin-right: 60vw;
+    }
+
+    #professional-challenges {
+        padding-top: 50px;
+        padding-bottom: 100px;
+    }
+
+    #professional-challenges > h2 {
+        letter-spacing: 6.08px;
+    }
+
+    footer {
+        padding: 40px 0;
+    }
 }

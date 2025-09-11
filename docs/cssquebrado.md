@@ -41,4 +41,17 @@ background-image:
 ;
 background-repeat: no-repeat;
 background-size: contain;
+
+background-image:
+        linear-gradient(rgba(255, 255, 255, 1), rgba(255, 255, 255, 1)), 
+        linear-gradient(to bottom, rgb(51, 168, 219), rgb(20, 114, 183))
+    ;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+
+background-image:
+        url('../images/banner.png'),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%,rgba(49, 168, 221, 0.1) 90%),
+        linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%,rgba(49, 168, 221, 0.1) 90%)
+    ;
 ```

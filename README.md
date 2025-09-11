@@ -28,7 +28,7 @@ Este projeto foi construído com uma combinação de tecnologias de codificaçã
 *   **CSS3:** Para estilização, layout e responsividade.
 
 ### Design
-*   **Figma e Penpot** Utilizados para visualizar o protótipo da *landing page*, que foi disponibilizado pela professora do curso.
+*   **Figma e Penpot:** Utilizados para visualizar o protótipo da *landing page*, que foi disponibilizado pela professora do curso.
 
 ### Metodologia e Processo de Desenvolvimento
 
